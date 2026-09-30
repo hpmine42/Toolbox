@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "title": "Toolbox",
+    "description": "Praktische Web-Werkzeuge, die lokal im Browser laufen. Ohne Konto und ohne Tracking."
+  },
+  "nav": {
+    "primary": "Hauptnavigation",
+    "skip": "Zum Inhalt springen",
+    "home": "Startseite",
+    "settings": "Einstellungen",
+    "allTools": "Alle Werkzeuge",
+    "themeToDark": "Dunkle Darstellung aktivieren",
+    "themeToLight": "Helle Darstellung aktivieren"
+  },
+  "home": {
+    "description": "Kleine Werkzeuge für den Alltag — schnell, übersichtlich und nur auf diesem Gerät.",
+    "searchLabel": "Werkzeuge suchen",
+    "searchPlaceholder": "Name oder Aufgabe",
+    "clearSearch": "Suche leeren",
+    "categoriesLabel": "Kategorien",
+    "resultCount_one": "{{count}} Werkzeug",
+    "resultCount_other": "{{count}} Werkzeuge",
+    "resultsTitle": "Suchergebnisse",
+    "emptyTitle": "Keine Treffer",
+    "emptyBody": "Kein Werkzeug passt zu dieser Suche."
+  },
+  "categories": {
+    "all": "Alle",
+    "generators": "Generatoren",
+    "time": "Zeit",
+    "converters": "Umrechner"
+  },
+  "languages": {
+    "de": "Deutsch",
+    "en": "English"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "intro": "Diese Auswahl bleibt auf diesem Gerät gespeichert.",
+    "language": "Sprache",
+    "languageHint": "Beim ersten Start wird die Browsersprache verwendet, falls sie unterstützt wird.",
+    "theme": "Darstellung",
+    "themeHint": "System folgt der Einstellung des Geräts.",
+    "themeSystem": "System",
+    "themeLight": "Hell",
+    "themeDark": "Dunkel",
+    "privacy": "Toolbox sammelt keine Konten und keine Nutzungsdaten und zeigt keine Werbung."
+  },
+  "tools": {
+    "randomNumber": {
+      "name": "Zufallszahl",
+      "description": "Erzeugt eine ganze Zahl zwischen einem Minimum und einem Maximum.",
+      "keywords": "zufallszahl, zufall, zahl, würfel, generator, random, number, integer",
+      "min": "Minimum",
+      "max": "Maximum",
+      "generate": "Zahl erzeugen",
+      "resultLabel": "Ergebnis",
+      "empty": "Noch keine Zahl erzeugt.",
+      "errors": {
+        "required": "Bitte Minimum und Maximum eingeben.",
+        "invalid": "Bitte gültige ganze Zahlen eingeben.",
+        "range": "Das Minimum darf nicht größer als das Maximum sein.",
+        "unsafe": "Der Bereich ist zu groß."
+      }
+    },
+    "timer": {
+      "name": "Timer",
+      "description": "Zählt eine eingestellte Zeit in Minuten und Sekunden herunter.",
+      "keywords": "timer, uhr, countdown, stoppuhr, zeit, minuten, sekunden, clock",
+      "minutes": "Minuten",
+      "seconds": "Sekunden",
+      "start": "Start",
+      "pause": "Pause",
+      "resume": "Fortsetzen",
+      "reset": "Zurücksetzen",
+      "remaining": "Verbleibende Zeit",
+      "done": "Die Zeit ist abgelaufen.",
+      "hintLocked": "Zum Ändern der Dauer zuerst zurücksetzen.",
+      "remainingLabel": "Verbleibende Zeit: {{minutes}}, {{seconds}}",
+      "minute_one": "{{count}} Minute",
+      "minute_other": "{{count}} Minuten",
+      "second_one": "{{count}} Sekunde",
+      "second_other": "{{count}} Sekunden",
+      "phaseRunning": "Timer läuft.",
+      "phasePaused": "Timer pausiert.",
+      "errors": {
+        "empty": "Bitte eine Dauer größer als null eingeben.",
+        "invalid": "Bitte gültige ganze Zahlen eingeben.",
+        "seconds": "Sekunden müssen zwischen 0 und 59 liegen.",
+        "minutes": "Minuten müssen zwischen 0 und 999 liegen."
+      }
+    },
+    "unitConverter": {
+      "name": "Einheiten-Umrechner",
+      "description": "Rechnet Länge, Gewicht und Temperatur um.",
+      "keywords": "einheiten, umrechner, länge, gewicht, temperatur, meter, kilogramm, celsius, converter, length, weight",
+      "category": "Größe",
+      "length": "Länge",
+      "weight": "Gewicht",
+      "temperature": "Temperatur",
+      "value": "Wert",
+      "from": "Von",
+      "to": "Nach",
+      "result": "Ergebnis",
+      "empty": "Ergebnis erscheint hier.",
+      "swap": "Einheiten tauschen",
+      "errors": {
+        "invalid": "Bitte eine gültige Zahl eingeben.",
+        "absoluteZero": "Der Wert liegt unter dem absoluten Nullpunkt."
+      },
+      "units": {
+        "mm": "Millimeter",
+        "cm": "Zentimeter",
+        "m": "Meter",
+        "km": "Kilometer",
+        "in": "Zoll",
+        "ft": "Fuß",
+        "yd": "Yard",
+        "mi": "Meile",
+        "mg": "Milligramm",
+        "g": "Gramm",
+        "kg": "Kilogramm",
+        "t": "Tonne",
+        "oz": "Unze",
+        "lb": "Pfund",
+        "c": "Celsius",
+        "f": "Fahrenheit",
+        "k": "Kelvin"
+      },
+      "symbols": {
+        "mm": "mm",
+        "cm": "cm",
+        "m": "m",
+        "km": "km",
+        "in": "in",
+        "ft": "ft",
+        "yd": "yd",
+        "mi": "mi",
+        "mg": "mg",
+        "g": "g",
+        "kg": "kg",
+        "t": "t",
+        "oz": "oz",
+        "lb": "lb",
+        "c": "°C",
+        "f": "°F",
+        "k": "K"
+      }
+    }
+  },
+  "states": {
+    "loading": "Wird geladen…",
+    "notFoundTitle": "Seite nicht gefunden",
+    "notFoundBody": "Diese Seite oder dieses Werkzeug gibt es nicht.",
+    "errorTitle": "Etwas ist schiefgelaufen",
+    "errorBody": "Diese Ansicht konnte nicht angezeigt werden.",
+    "retry": "Erneut versuchen"
+  },
+  "footer": {
+    "note": "Lokal im Browser. Kein Konto, kein Tracking, keine Werbung."
+  }
+}
