@@ -53,7 +53,7 @@ Components must not branch on language codes for copy.
 
 ## GitHub Pages
 
-The production workflow in `.github/workflows/pages.yml` builds with `VITE_BASE_PATH=/<repository-name>/` and deploys the `dist` folder. In the repository settings, set Pages to **GitHub Actions**.
+Copy [`docs/ci/pages.yml`](docs/ci/pages.yml) to `.github/workflows/pages.yml` and [`docs/ci/ci.yml`](docs/ci/ci.yml) to `.github/workflows/ci.yml` when the repository can commit workflow files. The Pages workflow builds with `VITE_BASE_PATH=/<repository-name>/` and deploys the `dist` folder. In the repository settings, set Pages to **GitHub Actions**.
 
 GitHub Pages does not rewrite routes. The build writes `dist/404.html`, which redirects a direct visit such as `/Toolbox/tools/timer` back to the app and restores the path before React Router starts. Local development uses the base path `/` and does not need that redirect.
 
