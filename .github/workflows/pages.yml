@@ -1,8 +1,6 @@
 name: Deploy to GitHub Pages
 
-# This file is not active until it is copied to .github/workflows/pages.yml.
-# The current repository token cannot create workflow files.
-#
+
 # Action majors below run on Node 24. Node 20 was removed from GitHub-hosted
 # runners on 2026-09-16, so checkout@v4, setup-node@v4, upload-pages-artifact@v3,
 # and deploy-pages@v4 are no longer safe pins.
