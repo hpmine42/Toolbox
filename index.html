@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f3f0e8" />
+    <meta
+      name="description"
+      content="Praktische Web-Werkzeuge, die lokal im Browser laufen. Ohne Konto und ohne Tracking."
+    />
+    <title>Toolbox</title>
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
+    <script>
+      (function () {
+        try {
+          var themeKey = "toolbox.theme";
+          var languageKey = "toolbox.language";
+          var storedTheme = localStorage.getItem(themeKey);
+          var preference =
+            storedTheme === "light" || storedTheme === "dark" || storedTheme === "system"
+              ? storedTheme
+              : "system";
+          var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = preference === "system" ? (systemDark ? "dark" : "light") : preference;
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.style.colorScheme = theme;
+
+          var storedLanguage = localStorage.getItem(languageKey);
+          var language = storedLanguage === "de" || storedLanguage === "en" ? storedLanguage : "";
+          if (!language) {
+            var tags = navigator.languages || [navigator.language || ""];
+            for (var index = 0; index < tags.length; index += 1) {
+              var base = String(tags[index] || "").toLowerCase().split("-")[0];
+              if (base === "de" || base === "en") {
+                language = base;
+                break;
+              }
+            }
+          }
+          root.lang = language || "de";
+        } catch (error) {
+          document.documentElement.lang = "de";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

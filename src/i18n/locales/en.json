@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "title": "Toolbox",
+    "description": "Practical web tools that run locally in your browser. No account and no tracking."
+  },
+  "nav": {
+    "primary": "Primary",
+    "skip": "Skip to content",
+    "home": "Home",
+    "settings": "Settings",
+    "allTools": "All tools",
+    "themeToDark": "Switch to dark theme",
+    "themeToLight": "Switch to light theme"
+  },
+  "home": {
+    "description": "Small tools for everyday tasks — fast, clear, and only on this device.",
+    "searchLabel": "Search tools",
+    "searchPlaceholder": "Name or task",
+    "clearSearch": "Clear search",
+    "categoriesLabel": "Categories",
+    "resultCount_one": "{{count}} tool",
+    "resultCount_other": "{{count}} tools",
+    "resultsTitle": "Search results",
+    "emptyTitle": "No matches",
+    "emptyBody": "No tool matches this search."
+  },
+  "categories": {
+    "all": "All",
+    "generators": "Generators",
+    "time": "Time",
+    "converters": "Converters"
+  },
+  "languages": {
+    "de": "Deutsch",
+    "en": "English"
+  },
+  "settings": {
+    "title": "Settings",
+    "intro": "This choice stays saved on this device.",
+    "language": "Language",
+    "languageHint": "On the first visit, Toolbox uses the browser language when it is supported.",
+    "theme": "Appearance",
+    "themeHint": "System follows the device setting.",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "privacy": "Toolbox does not collect accounts or usage data, and it shows no advertising."
+  },
+  "tools": {
+    "randomNumber": {
+      "name": "Random number",
+      "description": "Generates an integer between a minimum and a maximum.",
+      "keywords": "random, number, generator, integer, dice, zufallszahl",
+      "min": "Minimum",
+      "max": "Maximum",
+      "generate": "Generate number",
+      "resultLabel": "Result",
+      "empty": "No number generated yet.",
+      "errors": {
+        "required": "Enter both a minimum and a maximum.",
+        "invalid": "Enter valid integers.",
+        "range": "The minimum cannot be greater than the maximum.",
+        "unsafe": "That range is too large."
+      }
+    },
+    "timer": {
+      "name": "Timer",
+      "description": "Counts down a duration set in minutes and seconds.",
+      "keywords": "timer, countdown, stopwatch, minutes, seconds, clock",
+      "minutes": "Minutes",
+      "seconds": "Seconds",
+      "start": "Start",
+      "pause": "Pause",
+      "resume": "Resume",
+      "reset": "Reset",
+      "remaining": "Time remaining",
+      "done": "Time is up.",
+      "hintLocked": "Reset the timer before changing the duration.",
+      "remainingLabel": "Time remaining: {{minutes}}, {{seconds}}",
+      "minute_one": "{{count}} minute",
+      "minute_other": "{{count}} minutes",
+      "second_one": "{{count}} second",
+      "second_other": "{{count}} seconds",
+      "phaseRunning": "Timer running.",
+      "phasePaused": "Timer paused.",
+      "errors": {
+        "empty": "Enter a duration greater than zero.",
+        "invalid": "Enter valid integers.",
+        "seconds": "Seconds must be between 0 and 59.",
+        "minutes": "Minutes must be between 0 and 999."
+      }
+    },
+    "unitConverter": {
+      "name": "Unit converter",
+      "description": "Converts length, weight, and temperature.",
+      "keywords": "unit, converter, length, weight, temperature, metric, celsius, fahrenheit, einheiten",
+      "category": "Quantity",
+      "length": "Length",
+      "weight": "Weight",
+      "temperature": "Temperature",
+      "value": "Value",
+      "from": "From",
+      "to": "To",
+      "result": "Result",
+      "empty": "The result will appear here.",
+      "swap": "Swap units",
+      "errors": {
+        "invalid": "Enter a valid number.",
+        "absoluteZero": "The value is below absolute zero."
+      },
+      "units": {
+        "mm": "Millimetres",
+        "cm": "Centimetres",
+        "m": "Metres",
+        "km": "Kilometres",
+        "in": "Inches",
+        "ft": "Feet",
+        "yd": "Yards",
+        "mi": "Miles",
+        "mg": "Milligrams",
+        "g": "Grams",
+        "kg": "Kilograms",
+        "t": "Tonnes",
+        "oz": "Ounces",
+        "lb": "Pounds",
+        "c": "Celsius",
+        "f": "Fahrenheit",
+        "k": "Kelvin"
+      },
+      "symbols": {
+        "mm": "mm",
+        "cm": "cm",
+        "m": "m",
+        "km": "km",
+        "in": "in",
+        "ft": "ft",
+        "yd": "yd",
+        "mi": "mi",
+        "mg": "mg",
+        "g": "g",
+        "kg": "kg",
+        "t": "t",
+        "oz": "oz",
+        "lb": "lb",
+        "c": "°C",
+        "f": "°F",
+        "k": "K"
+      }
+    }
+  },
+  "states": {
+    "loading": "Loading…",
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "This page or tool does not exist.",
+    "errorTitle": "Something went wrong",
+    "errorBody": "This view could not be displayed.",
+    "retry": "Try again"
+  },
+  "footer": {
+    "note": "Local in the browser. No account, no tracking, no ads."
+  }
+}
