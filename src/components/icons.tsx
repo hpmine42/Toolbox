@@ -9,6 +9,7 @@ export const iconNames = [
   'dice',
   'timer',
   'ruler',
+  'leaf',
   'swap',
   'close',
 ] as const
@@ -63,6 +64,12 @@ const paths: Record<IconName, ReactNode> = {
     <>
       <rect x="3" y="8" width="18" height="8" rx="1.5" />
       <path d="M7 8v3.2M10.5 8v4.4M14 8v3.2M17.5 8v4.4" />
+    </>
+  ),
+  leaf: (
+    <>
+      <path d="M19.5 4.5C12.3 4.6 6.3 5.8 4 9.5c-1.8 2.9-.6 6.6 2.4 7.5 4.5 1.4 9.5-2.1 11.4-7.4.7-1.8 1.3-3.6 1.7-5.1Z" />
+      <path d="M4.8 19.2c2.2-4.2 5.2-7.3 10-10.2" />
     </>
   ),
   swap: (

@@ -146,6 +146,263 @@
         "f": "°F",
         "k": "K"
       }
+    },
+    "outdoorTracker": {
+      "name": "Outdoor time tracker",
+      "description": "Track your daily time outdoors with a calendar, statistics, and local data exports.",
+      "keywords": "outdoors, outdoor time, nature, fresh air, tracker, minutes, calendar, statistics, draussen",
+      "heading": "Outdoor time",
+      "menu": {
+        "open": "Open settings",
+        "close": "Close settings",
+        "settings": "Settings",
+        "view": "View",
+        "darkModeOn": "Switch to light mode",
+        "darkModeOff": "Switch to dark mode",
+        "neonModeOn": "Enable neon mode",
+        "neonModeOff": "Disable neon mode",
+        "yearChart": "Year chart",
+        "statistics": "Statistics",
+        "monthlyReview": "Monthly review",
+        "data": "Data",
+        "exportJson": "Export (JSON)",
+        "import": "Import (JSON)",
+        "exportCsv": "Export (CSV)",
+        "exportAll": "Export (JSON + CSV)",
+        "tracking": "Tracking",
+        "startDate": "Start date",
+        "reset": "Reset",
+        "resetMonth": "Reset month",
+        "resetAll": "Reset everything"
+      },
+      "calendar": {
+        "caption": "Calendar for {{month}}",
+        "dayBeforeStart": "Day {{day}} is before the tracking start date",
+        "dayEmpty": "{{date}}: no entry yet",
+        "dayWithMinutes": "{{date}}: {{minutes}} minutes outdoors. {{hasNote}}",
+        "noteAdded": "A note is saved.",
+        "navigation": "Month navigation",
+        "previousMonth": "Previous month",
+        "nextMonth": "Next month",
+        "legendTitle": "Day color legend",
+        "beforeStartLegend": "Before tracking start date",
+        "weekdays": {
+          "short": {
+            "monday": "Mon",
+            "tuesday": "Tue",
+            "wednesday": "Wed",
+            "thursday": "Thu",
+            "friday": "Fri",
+            "saturday": "Sat",
+            "sunday": "Sun"
+          },
+          "full": {
+            "monday": "Monday",
+            "tuesday": "Tuesday",
+            "wednesday": "Wednesday",
+            "thursday": "Thursday",
+            "friday": "Friday",
+            "saturday": "Saturday",
+            "sunday": "Sunday"
+          }
+        }
+      },
+      "monthPicker": {
+        "open": "Choose a month. Current month: {{month}}",
+        "title": "Choose a month",
+        "previousYear": "Previous year",
+        "nextYear": "Next year",
+        "selectMonth": "Choose {{month}}"
+      },
+      "averagesHeading": "Averages",
+      "monthAverage": "Monthly average",
+      "yearAverage": "Yearly average",
+      "averageEmpty": "–",
+      "averageValue": "{{minutes}} min/day",
+      "chart": {
+        "minutesOutside": "Minutes outdoors",
+        "tooltip": "{{minutes}} minutes outdoors",
+        "monthTitle": "Daily overview — {{month}}",
+        "downloadButton": "Save chart",
+        "holdHint": "Press and hold to save",
+        "downloaded": "{{month}} saved",
+        "monthDescription": "Bar chart of daily minutes outdoors for {{month}}",
+        "watermark": "Outdoor time tracker",
+        "downloadTitle": "Download chart?",
+        "confirmDownload": "Download"
+      },
+      "entry": {
+        "title": "Entry for {{date}}",
+        "minutes": "Minutes outdoors",
+        "minutesPlaceholder": "Minutes",
+        "note": "Notes (optional)",
+        "notePlaceholder": "Notes (optional)",
+        "delete": "Delete entry"
+      },
+      "startDate": {
+        "title": "Tracking start date",
+        "description": "Days before this date are excluded from all calculations and charts.",
+        "label": "Start date",
+        "current": "Current: {{date}}",
+        "none": "No start date set — all days are counted.",
+        "reset": "Reset start date"
+      },
+      "year": {
+        "title": "Year chart {{year}}",
+        "chartDescription": "Line chart of daily minutes outdoors in {{year}}",
+        "chartCaption": "Daily time outdoors in {{year}}.",
+        "download": "Download chart"
+      },
+      "stats": {
+        "title": "Statistics",
+        "download": "Download report",
+        "bestMonth": "Best month (average)",
+        "worstMonth": "Lowest month (average)",
+        "bestDay": "Best single day",
+        "longestStreak": "Longest streak (consecutive days)",
+        "currentStreak": "Current streak",
+        "noCurrentStreak": "No active streak",
+        "totalTime": "Total time (all entries)",
+        "totalMinutes": "{{minutes}} minutes",
+        "hoursAndMinutes": "{{hours}} hr {{minutes}} min",
+        "recordedDays_one": "Tracked on {{count}} day",
+        "recordedDays_other": "Tracked on {{count}} days",
+        "mostMinutesMonth": "Month with the most total minutes",
+        "bestWeekday": "Best average weekday",
+        "monthAverageValue": "{{month}} — {{minutes}} min/day",
+        "bestDayValue": "{{date}} — {{minutes}} min",
+        "streakValue_one": "{{count}} day (through {{date}})",
+        "streakValue_other": "{{count}} days (through {{date}})",
+        "currentStreakValue_one": "{{count}} day",
+        "currentStreakValue_other": "{{count}} days",
+        "monthTotalValue": "{{month}} — {{minutes}} min",
+        "weekdayAverageValue": "{{weekday}} — avg. {{minutes}} min"
+      },
+      "review": {
+        "title": "Monthly review",
+        "download": "Download report",
+        "navigation": "Monthly review navigation",
+        "previousMonth": "Previous month",
+        "nextMonth": "Next month",
+        "totalOutside": "Total time outdoors",
+        "minutesAbbreviation": "min",
+        "comparisonSuffix": "compared with last month",
+        "trackedDays": "Days tracked",
+        "daysOfMonth": "{{tracked}} / {{total}} days",
+        "daysWithoutEntry_one": "{{count}} day without an entry",
+        "daysWithoutEntry_other": "{{count}} days without an entry",
+        "averagePerTrackedDay": "Average per tracked day",
+        "minutesValue": "{{minutes}} min",
+        "averagePerCalendarDay": "Avg. {{minutes}} min per calendar day",
+        "bestDay": "Best day",
+        "worstDay": "Lowest day",
+        "longestStreak": "Longest streak",
+        "daysValue_one": "{{count}} day",
+        "daysValue_other": "{{count}} days",
+        "untilDate": "through {{date}}",
+        "previousMonthDetails": "{{days}} days · avg. {{minutes}} min",
+        "noData": "No data",
+        "beforeStart": "Before tracking started",
+        "zeroMinutes": "0 min",
+        "activityHistory": "Activity history",
+        "summaryTitle": "Summary",
+        "legend": {
+          "high": "≥90 min",
+          "good": "60–89 min",
+          "low": "30–59 min",
+          "short": "<30 min"
+        },
+        "comparison": {
+          "increase": "▲ +{{minutes}} min compared with last month (+{{percent}}%)",
+          "decrease": "▼ −{{minutes}} min compared with last month (−{{percent}}%)",
+          "same": "The same time as last month",
+          "noPrevious": "No previous month available"
+        },
+        "summary": {
+          "empty": "No outdoor time has been recorded this month yet.",
+          "strong": "A great month — {{time}} spent outdoors in total.",
+          "solid": "A solid month with {{time}} outdoors in total.",
+          "developing": "There is room to grow — {{time}} spent outdoors in total.",
+          "low": "A quieter month — {{time}} spent outdoors in total.",
+          "coverageExcellent": "Excellent consistency: active on {{trackedDays}} of {{daysInMonth}} days.",
+          "coverageGood": "Outdoor time was recorded on {{trackedDays}} of {{daysInMonth}} days.",
+          "coverageLow": "Only {{trackedDays}} of {{daysInMonth}} days recorded — a steadier routine could help.",
+          "streakExcellent_one": "An impressive streak of {{count}} day in a row!",
+          "streakExcellent_other": "An impressive streak of {{count}} days in a row!",
+          "streakGood_one": "Longest streak: {{count}} consecutive day.",
+          "streakGood_other": "Longest streak: {{count}} consecutive days.",
+          "streakShort_one": "Longest active streak: {{count}} day.",
+          "streakShort_other": "Longest active streak: {{count}} days.",
+          "increase": "Up {{minutes}} min (+{{percent}}%) from the previous month.",
+          "decrease": "Down {{minutes}} min (−{{percent}}%) from the previous month."
+        },
+        "previousMonthCard": "Previous month ({{month}})"
+      },
+      "duration": {
+        "minutes_one": "{{count}} minute",
+        "minutes_other": "{{count}} minutes",
+        "hours_one": "{{count}} hour",
+        "hours_other": "{{count}} hours",
+        "hoursAndMinutes": "{{hours}} hr {{minutes}} min",
+        "years_one": "{{count}} year",
+        "years_other": "{{count}} years",
+        "days_one": "{{count}} day",
+        "days_other": "{{count}} days",
+        "zero": "0 minutes"
+      },
+      "reports": {
+        "statsTitle": "Outdoor time — Statistics",
+        "monthTitle": "Monthly review — {{month}}",
+        "createdOn": "Created on {{date}}",
+        "footer": "Outdoor time tracker · Created locally on this device"
+      },
+      "import": {
+        "title": "Confirm import",
+        "confirm_one": "The current data will be replaced with {{count}} entry from this file. Continue?",
+        "confirm_other": "The current data will be replaced with {{count}} entries from this file. Continue?"
+      },
+      "confirm": {
+        "reset-month": {
+          "title": "Reset this month?",
+          "body": "All entries from {{month}} will be permanently deleted."
+        },
+        "reset-all": {
+          "title": "Reset all data?",
+          "body": "All entries will be permanently deleted from this device."
+        },
+        "clear-start": {
+          "title": "Remove the start date?",
+          "body": "Without a start date, all days will be included in calculations and charts again."
+        }
+      },
+      "status": {
+        "entrySaved": "Entry saved.",
+        "entryDeleted": "Entry deleted.",
+        "invalidDate": "Choose a valid date.",
+        "startDateSaved": "Tracking start date saved.",
+        "monthReset": "Entries for this month were deleted.",
+        "allReset": "All entries were deleted.",
+        "startDateCleared": "Tracking start date removed.",
+        "exportStarted": "Your download has started.",
+        "importInvalid": "The file is invalid or could not be read.",
+        "importSuccess": "Import complete. Your data has been updated.",
+        "chartSaved": "Chart saved."
+      },
+      "common": {
+        "back": "Back",
+        "save": "Save",
+        "cancel": "Cancel",
+        "confirm": "Continue"
+      },
+      "csvHeader": "Date;Minutes;Notes",
+      "files": {
+        "backup": "outdoor-time-backup.json",
+        "csv": "outdoor-time.csv",
+        "monthChart": "outdoor-month-chart-{{year}}-{{month}}.png",
+        "yearChart": "outdoor-year-chart-{{year}}.png",
+        "statsReport": "outdoor-statistics-{{date}}.html",
+        "monthReport": "monthly-review-{{year}}-{{month}}.html"
+      }
     }
   },
   "states": {

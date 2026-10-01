@@ -31,6 +31,16 @@ export const tools: readonly ToolDefinition[] = [
     route: '/tools/unit-converter',
     status: 'available',
   },
+  {
+    id: 'outdoor-tracker',
+    nameKey: 'tools.outdoorTracker.name',
+    descriptionKey: 'tools.outdoorTracker.description',
+    keywordsKey: 'tools.outdoorTracker.keywords',
+    category: 'time',
+    icon: 'leaf',
+    route: '/tools/outdoor-tracker',
+    status: 'available',
+  },
 ]
 
 export function getTool(id: string | undefined): ToolDefinition | undefined {

@@ -40,6 +40,12 @@ describe('ToolPage', () => {
     expect(screen.getByText('4')).toBeInTheDocument()
   })
 
+  it('renders the outdoor tracker at its registered route', async () => {
+    renderTool('/tools/outdoor-tracker')
+    expect(await screen.findByRole('heading', { name: 'Draußen-Zeit-Tracker' })).toBeInTheDocument()
+    expect(await screen.findByRole('table', { name: /Kalender für/ })).toBeInTheDocument()
+  })
+
   it('shows a translated not-found state', async () => {
     renderTool('/tools/draussen-tracker')
     expect(await screen.findByRole('heading', { name: 'Seite nicht gefunden' })).toBeInTheDocument()

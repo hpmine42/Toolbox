@@ -146,6 +146,263 @@
         "f": "°F",
         "k": "K"
       }
+    },
+    "outdoorTracker": {
+      "name": "Draußen-Zeit-Tracker",
+      "description": "Erfasst deine tägliche Zeit im Freien – mit Kalender, Statistiken und lokalen Datenexporten.",
+      "keywords": "draußen, draußenzeit, outdoor, natur, frische luft, tracker, minuten, kalender, statistik",
+      "heading": "Draußen-Zeit",
+      "menu": {
+        "open": "Einstellungen öffnen",
+        "close": "Einstellungen schließen",
+        "settings": "Einstellungen",
+        "view": "Ansicht",
+        "darkModeOn": "Hellen Modus aktivieren",
+        "darkModeOff": "Dunklen Modus aktivieren",
+        "neonModeOn": "Neon-Modus aktivieren",
+        "neonModeOff": "Neon-Modus deaktivieren",
+        "yearChart": "Jahresdiagramm",
+        "statistics": "Statistiken",
+        "monthlyReview": "Monatsrückblick",
+        "data": "Daten",
+        "exportJson": "Export (JSON)",
+        "import": "Import (JSON)",
+        "exportCsv": "Export (CSV)",
+        "exportAll": "Export (JSON + CSV)",
+        "tracking": "Tracking",
+        "startDate": "Startdatum",
+        "reset": "Zurücksetzen",
+        "resetMonth": "Monat zurücksetzen",
+        "resetAll": "Alles zurücksetzen"
+      },
+      "calendar": {
+        "caption": "Kalender für {{month}}",
+        "dayBeforeStart": "Tag {{day}} liegt vor dem Tracking-Startdatum",
+        "dayEmpty": "{{date}}: noch kein Eintrag",
+        "dayWithMinutes": "{{date}}: {{minutes}} Minuten draußen. {{hasNote}}",
+        "noteAdded": "Notiz vorhanden.",
+        "navigation": "Monatsnavigation",
+        "previousMonth": "Vorheriger Monat",
+        "nextMonth": "Nächster Monat",
+        "legendTitle": "Legende der Tagesfarben",
+        "beforeStartLegend": "Vor Tracking-Startdatum",
+        "weekdays": {
+          "short": {
+            "monday": "Mo",
+            "tuesday": "Di",
+            "wednesday": "Mi",
+            "thursday": "Do",
+            "friday": "Fr",
+            "saturday": "Sa",
+            "sunday": "So"
+          },
+          "full": {
+            "monday": "Montag",
+            "tuesday": "Dienstag",
+            "wednesday": "Mittwoch",
+            "thursday": "Donnerstag",
+            "friday": "Freitag",
+            "saturday": "Samstag",
+            "sunday": "Sonntag"
+          }
+        }
+      },
+      "monthPicker": {
+        "open": "Monat auswählen. Aktuell: {{month}}",
+        "title": "Monat auswählen",
+        "previousYear": "Vorheriges Jahr",
+        "nextYear": "Nächstes Jahr",
+        "selectMonth": "{{month}} auswählen"
+      },
+      "averagesHeading": "Durchschnittswerte",
+      "monthAverage": "Monatsdurchschnitt",
+      "yearAverage": "Jahresdurchschnitt",
+      "averageEmpty": "–",
+      "averageValue": "{{minutes}} Min./Tag",
+      "chart": {
+        "minutesOutside": "Minuten draußen",
+        "tooltip": "{{minutes}} Minuten draußen",
+        "monthTitle": "Tagesübersicht – {{month}}",
+        "downloadButton": "Diagramm speichern",
+        "holdHint": "Gedrückt halten zum Speichern",
+        "downloaded": "{{month}} gespeichert",
+        "monthDescription": "Balkendiagramm der täglichen Draußen-Minuten für {{month}}",
+        "watermark": "Draußen-Zeit-Tracker",
+        "downloadTitle": "Diagramm herunterladen?",
+        "confirmDownload": "Herunterladen"
+      },
+      "entry": {
+        "title": "Eintrag für {{date}}",
+        "minutes": "Minuten draußen",
+        "minutesPlaceholder": "Minuten",
+        "note": "Notizen (optional)",
+        "notePlaceholder": "Notizen (optional)",
+        "delete": "Eintrag löschen"
+      },
+      "startDate": {
+        "title": "Tracking-Startdatum",
+        "description": "Tage vor diesem Datum werden aus allen Berechnungen und Diagrammen ausgeschlossen.",
+        "label": "Startdatum",
+        "current": "Aktuell: {{date}}",
+        "none": "Kein Startdatum gesetzt – alle Tage werden gezählt.",
+        "reset": "Startdatum zurücksetzen"
+      },
+      "year": {
+        "title": "Jahresdiagramm {{year}}",
+        "chartDescription": "Liniendiagramm der täglichen Draußen-Minuten im Jahr {{year}}",
+        "chartCaption": "Tägliche Draußen-Zeit im Jahr {{year}}.",
+        "download": "Diagramm herunterladen"
+      },
+      "stats": {
+        "title": "Statistiken",
+        "download": "Bericht herunterladen",
+        "bestMonth": "Bester Monat (Durchschnitt)",
+        "worstMonth": "Schwächster Monat (Durchschnitt)",
+        "bestDay": "Bester einzelner Tag",
+        "longestStreak": "Längste Serie (Tage in Folge)",
+        "currentStreak": "Aktuelle Serie",
+        "noCurrentStreak": "Keine aktive Serie",
+        "totalTime": "Gesamtzeit (alle Einträge)",
+        "totalMinutes": "{{minutes}} Minuten",
+        "hoursAndMinutes": "{{hours}} Std. {{minutes}} Min.",
+        "recordedDays_one": "An {{count}} Tag getrackt",
+        "recordedDays_other": "An {{count}} Tagen getrackt",
+        "mostMinutesMonth": "Monat mit den meisten Gesamtminuten",
+        "bestWeekday": "Bester Wochentag im Durchschnitt",
+        "monthAverageValue": "{{month}} – {{minutes}} Min./Tag",
+        "bestDayValue": "{{date}} – {{minutes}} Min.",
+        "streakValue_one": "{{count}} Tag (bis {{date}})",
+        "streakValue_other": "{{count}} Tage (bis {{date}})",
+        "currentStreakValue_one": "{{count}} Tag",
+        "currentStreakValue_other": "{{count}} Tage",
+        "monthTotalValue": "{{month}} – {{minutes}} Min.",
+        "weekdayAverageValue": "{{weekday}} – Ø {{minutes}} Min."
+      },
+      "review": {
+        "title": "Monatsrückblick",
+        "download": "Bericht herunterladen",
+        "navigation": "Monatsrückblick-Navigation",
+        "previousMonth": "Vorheriger Monat",
+        "nextMonth": "Nächster Monat",
+        "totalOutside": "Gesamtzeit draußen",
+        "minutesAbbreviation": "Min.",
+        "comparisonSuffix": "gegenüber dem Vormonat",
+        "trackedDays": "Tage erfasst",
+        "daysOfMonth": "{{tracked}} / {{total}} Tage",
+        "daysWithoutEntry_one": "{{count}} Tag ohne Eintrag",
+        "daysWithoutEntry_other": "{{count}} Tage ohne Eintrag",
+        "averagePerTrackedDay": "Ø pro erfasstem Tag",
+        "minutesValue": "{{minutes}} Min.",
+        "averagePerCalendarDay": "Ø {{minutes}} Min. pro Kalendertag",
+        "bestDay": "Bester Tag",
+        "worstDay": "Schlechtester Tag",
+        "longestStreak": "Längste Serie",
+        "daysValue_one": "{{count}} Tag",
+        "daysValue_other": "{{count}} Tage",
+        "untilDate": "bis {{date}}",
+        "previousMonthDetails": "{{days}} Tage · Ø {{minutes}} Min.",
+        "noData": "Keine Daten",
+        "beforeStart": "Vor Tracking-Start",
+        "zeroMinutes": "0 Min.",
+        "activityHistory": "Aktivitätsverlauf",
+        "summaryTitle": "Zusammenfassung",
+        "legend": {
+          "high": "≥90 Min.",
+          "good": "60–89 Min.",
+          "low": "30–59 Min.",
+          "short": "<30 Min."
+        },
+        "comparison": {
+          "increase": "▲ +{{minutes}} Min. gegenüber dem Vormonat (+{{percent}} %)",
+          "decrease": "▼ −{{minutes}} Min. gegenüber dem Vormonat (−{{percent}} %)",
+          "same": "Gleich viel Zeit wie im Vormonat",
+          "noPrevious": "Kein Vormonat verfügbar"
+        },
+        "summary": {
+          "empty": "In diesem Monat wurde noch keine Zeit draußen erfasst.",
+          "strong": "Ein starker Monat – insgesamt {{time}} draußen verbracht.",
+          "solid": "Ein solider Monat mit insgesamt {{time}} Draußen-Zeit.",
+          "developing": "Da ist noch Luft nach oben – insgesamt {{time}} draußen verbracht.",
+          "low": "Ein ruhiger Monat – insgesamt {{time}} draußen verbracht.",
+          "coverageExcellent": "Ausgezeichnete Konstanz: an {{trackedDays}} von {{daysInMonth}} Tagen aktiv.",
+          "coverageGood": "An {{trackedDays}} von {{daysInMonth}} Tagen wurde Zeit draußen erfasst.",
+          "coverageLow": "Nur {{trackedDays}} von {{daysInMonth}} Tagen erfasst – mehr Regelmäßigkeit könnte helfen.",
+          "streakExcellent_one": "Beeindruckende Serie von {{count}} Tag am Stück!",
+          "streakExcellent_other": "Beeindruckende Serie von {{count}} Tagen am Stück!",
+          "streakGood_one": "Längste Serie: {{count}} Tag in Folge.",
+          "streakGood_other": "Längste Serie: {{count}} Tage in Folge.",
+          "streakShort_one": "Längste aktive Serie: {{count}} Tag.",
+          "streakShort_other": "Längste aktive Serie: {{count}} Tage.",
+          "increase": "Gegenüber dem Vormonat eine Steigerung von {{minutes}} Min. (+{{percent}} %).",
+          "decrease": "Gegenüber dem Vormonat ein Rückgang von {{minutes}} Min. (−{{percent}} %)."
+        },
+        "previousMonthCard": "Vormonat ({{month}})"
+      },
+      "duration": {
+        "minutes_one": "{{count}} Minute",
+        "minutes_other": "{{count}} Minuten",
+        "hours_one": "{{count}} Stunde",
+        "hours_other": "{{count}} Stunden",
+        "hoursAndMinutes": "{{hours}} Std. {{minutes}} Min.",
+        "years_one": "{{count}} Jahr",
+        "years_other": "{{count}} Jahre",
+        "days_one": "{{count}} Tag",
+        "days_other": "{{count}} Tage",
+        "zero": "0 Minuten"
+      },
+      "reports": {
+        "statsTitle": "Draußen-Zeit – Statistiken",
+        "monthTitle": "Monatsrückblick – {{month}}",
+        "createdOn": "Erstellt am {{date}}",
+        "footer": "Draußen-Zeit-Tracker · Lokal auf diesem Gerät erstellt"
+      },
+      "import": {
+        "title": "Import bestätigen",
+        "confirm_one": "Die aktuellen Daten werden durch {{count}} Eintrag aus der Datei ersetzt. Fortfahren?",
+        "confirm_other": "Die aktuellen Daten werden durch {{count}} Einträge aus der Datei ersetzt. Fortfahren?"
+      },
+      "confirm": {
+        "reset-month": {
+          "title": "Monat zurücksetzen?",
+          "body": "Alle Einträge aus {{month}} werden unwiderruflich gelöscht."
+        },
+        "reset-all": {
+          "title": "Alle Daten zurücksetzen?",
+          "body": "Alle Einträge werden unwiderruflich von diesem Gerät gelöscht."
+        },
+        "clear-start": {
+          "title": "Startdatum entfernen?",
+          "body": "Ohne Startdatum werden wieder alle Tage in Berechnungen und Diagrammen berücksichtigt."
+        }
+      },
+      "status": {
+        "entrySaved": "Eintrag gespeichert.",
+        "entryDeleted": "Eintrag gelöscht.",
+        "invalidDate": "Bitte ein gültiges Datum auswählen.",
+        "startDateSaved": "Tracking-Startdatum gespeichert.",
+        "monthReset": "Einträge des Monats gelöscht.",
+        "allReset": "Alle Einträge gelöscht.",
+        "startDateCleared": "Tracking-Startdatum entfernt.",
+        "exportStarted": "Der Download wurde gestartet.",
+        "importInvalid": "Die Datei ist ungültig oder konnte nicht gelesen werden.",
+        "importSuccess": "Import erfolgreich. Die Daten wurden aktualisiert.",
+        "chartSaved": "Diagramm gespeichert."
+      },
+      "common": {
+        "back": "Zurück",
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "confirm": "Fortfahren"
+      },
+      "csvHeader": "Datum;Minuten;Notizen",
+      "files": {
+        "backup": "draussen-zeit-backup.json",
+        "csv": "draussen-zeit.csv",
+        "monthChart": "draussen-monatsdiagramm-{{year}}-{{month}}.png",
+        "yearChart": "draussen-jahresdiagramm-{{year}}.png",
+        "statsReport": "draussen-statistiken-{{date}}.html",
+        "monthReport": "monatsrueckblick-{{year}}-{{month}}.html"
+      }
     }
   },
   "states": {

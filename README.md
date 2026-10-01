@@ -11,12 +11,11 @@ Persistent development guidelines live in [`docs/arena-instructions.md`](docs/ar
 - Random number (`/tools/random-number`)
 - Timer (`/tools/timer`)
 - Unit converter (`/tools/unit-converter`) — length, weight, and temperature
-
-The existing Draußen-Tracker is intentionally not included yet. Integrate it later without rewriting its behavior.
+- Outdoor time tracker (`/tools/outdoor-tracker`) — daily outdoor minutes and notes, calendar, monthly and yearly charts, statistics, monthly reviews, and local JSON/CSV exports
 
 ## Privacy
 
-Toolbox runs in the browser. There is no account, backend, analytics, advertising, or unnecessary external request. Language and theme choices are stored in `localStorage` on this device.
+Toolbox runs in the browser. There is no account, backend, analytics, advertising, or unnecessary external request. Language, theme, and tracker data stay in `localStorage` on this device. Tracker charts use a locally bundled Chart.js package; they do not load code from a CDN.
 
 ## Development
 
