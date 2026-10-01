@@ -1,0 +1,1085 @@
+.outdoor-tracker {
+  --ot-panel: var(--surface);
+  --ot-panel-soft: var(--surface-sunken);
+  --ot-line: var(--line);
+  --ot-line-strong: var(--line-strong);
+  --ot-ink: var(--ink);
+  --ot-muted: var(--muted);
+  --ot-accent: var(--accent);
+  --ot-accent-text: var(--accent-text);
+  --ot-red: #f5a8ae;
+  --ot-yellow: #f5e580;
+  --ot-lightgreen: #93d49b;
+  --ot-darkgreen: #4caf62;
+  color: var(--ot-ink);
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.outdoor-tracker[data-theme='dark'] {
+  --ot-red: #c0424e;
+  --ot-yellow: #b8960a;
+  --ot-lightgreen: #2e8c44;
+  --ot-darkgreen: #1c6b30;
+}
+
+.outdoor-tracker[data-neon='true'] {
+  --ot-panel: rgba(10, 0, 30, 0.88);
+  --ot-panel-soft: rgba(0, 255, 255, 0.07);
+  --ot-line: rgba(0, 255, 255, 0.24);
+  --ot-line-strong: rgba(0, 255, 255, 0.42);
+  --ot-ink: #ffffff;
+  --ot-muted: #a9eeee;
+  --ot-accent: #ff00ff;
+  --ot-accent-text: #00ffff;
+  --ot-red: rgba(180, 0, 50, 0.7);
+  --ot-yellow: rgba(180, 150, 0, 0.74);
+  --ot-lightgreen: rgba(0, 150, 70, 0.78);
+  --ot-darkgreen: rgba(0, 110, 55, 0.84);
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 0, 255, 0.42);
+  border-radius: 8px;
+  background: #05000f;
+  box-shadow: 0 0 1.5rem rgba(255, 0, 255, 0.12);
+}
+
+.outdoor-neon-canvas {
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 auto;
+  width: 100%;
+  pointer-events: none;
+}
+
+.outdoor-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.outdoor-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.outdoor-topbar h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.outdoor-menu-trigger,
+.outdoor-menu-close {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--ot-line-strong);
+  border-radius: 6px;
+  background: var(--ot-panel-soft);
+  color: var(--ot-accent-text);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.outdoor-menu-trigger:hover,
+.outdoor-menu-close:hover {
+  border-color: var(--ot-accent);
+  background: var(--ot-panel);
+}
+
+.outdoor-calendar-section {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.outdoor-month-picker-trigger {
+  justify-self: center;
+  min-height: 2.75rem;
+  padding: 0.35rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ot-ink);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.outdoor-month-picker-trigger:hover {
+  background: var(--ot-panel-soft);
+  color: var(--ot-accent-text);
+}
+
+.outdoor-calendar-wrap {
+  min-width: 0;
+  touch-action: pan-y;
+}
+
+.outdoor-calendar {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0.25rem;
+}
+
+.outdoor-calendar th {
+  padding: 0.2rem 0 0.35rem;
+  color: var(--ot-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.outdoor-calendar td {
+  height: 3.2rem;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.outdoor-day {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.12rem;
+  width: 100%;
+  min-width: 2.5rem;
+  min-height: 3rem;
+  padding: 0.25rem 0.1rem;
+  border: 1px solid var(--ot-line);
+  border-radius: 6px;
+  background: var(--ot-panel);
+  color: var(--ot-ink);
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+@media (hover: hover) {
+  .outdoor-day:hover:not(:disabled) {
+    z-index: 1;
+    transform: scale(1.04);
+    border-color: var(--ot-accent);
+  }
+}
+
+.outdoor-day--red,
+.outdoor-day--yellow,
+.outdoor-day--lightgreen,
+.outdoor-day--darkgreen {
+  color: #1a2218;
+}
+
+.outdoor-day--red { background: var(--ot-red); }
+.outdoor-day--yellow { background: var(--ot-yellow); }
+.outdoor-day--lightgreen { background: var(--ot-lightgreen); }
+.outdoor-day--darkgreen { background: var(--ot-darkgreen); }
+
+.outdoor-tracker[data-theme='dark'] .outdoor-day--red,
+.outdoor-tracker[data-theme='dark'] .outdoor-day--lightgreen,
+.outdoor-tracker[data-theme='dark'] .outdoor-day--darkgreen {
+  color: #fff8ee;
+}
+
+.outdoor-tracker[data-theme='dark'] .outdoor-day--yellow {
+  color: #1a2218;
+}
+
+.outdoor-day--today {
+  outline: 2px solid var(--ot-accent);
+  outline-offset: -2px;
+  box-shadow: 0 0 0 1px var(--ot-panel);
+}
+
+.outdoor-day--pre-start,
+.outdoor-day--pre-start:disabled {
+  border: 1px dashed var(--ot-line-strong);
+  background: repeating-linear-gradient(135deg, var(--ot-panel-soft) 0 4px, transparent 4px 10px);
+  color: var(--ot-muted);
+  opacity: 0.48;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.outdoor-day-minutes {
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.outdoor-day-note {
+  position: absolute;
+  right: 0.24rem;
+  bottom: 0.2rem;
+  font-size: 0.4rem;
+  color: var(--ot-accent-text);
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-day {
+  border-color: rgba(0, 255, 255, 0.24);
+  background: rgba(10, 10, 30, 0.88);
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.75);
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-day--red {
+  background: rgba(180, 0, 50, 0.72);
+  border-color: #ff0055;
+  box-shadow: 0 0 7px rgba(255, 0, 85, 0.65);
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-day--yellow {
+  background: rgba(180, 150, 0, 0.72);
+  color: #16120a;
+  text-shadow: none;
+  border-color: #ffee00;
+  box-shadow: 0 0 7px rgba(255, 238, 0, 0.55);
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-day--lightgreen {
+  background: rgba(0, 145, 70, 0.78);
+  border-color: #00ff88;
+  box-shadow: 0 0 7px rgba(0, 255, 136, 0.55);
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-day--darkgreen {
+  background: rgba(0, 100, 55, 0.82);
+  border-color: #00ffaa;
+  box-shadow: 0 0 9px rgba(0, 255, 170, 0.6);
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-day--today {
+  outline-color: #ff00ff;
+  box-shadow: 0 0 13px rgba(255, 0, 255, 0.7);
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-day--pre-start,
+.outdoor-tracker[data-neon='true'] .outdoor-day--pre-start:disabled {
+  background: repeating-linear-gradient(135deg, rgba(0, 40, 40, 0.38) 0 4px, transparent 4px 10px);
+  border-color: rgba(0, 255, 255, 0.16);
+  color: rgba(180, 240, 240, 0.55);
+  text-shadow: none;
+}
+
+.outdoor-calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  margin: 0.1rem 0 0;
+  padding: 0;
+  color: var(--ot-muted);
+  font-size: 0.73rem;
+  list-style: none;
+}
+
+.outdoor-calendar-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.outdoor-month-navigation,
+.outdoor-action-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.outdoor-month-navigation .button,
+.outdoor-action-row .button {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding-inline: 0.55rem;
+  border-color: var(--ot-line-strong);
+  background: var(--ot-panel-soft);
+  color: var(--ot-ink);
+  text-align: center;
+}
+
+.outdoor-month-navigation .button:hover,
+.outdoor-action-row .button-secondary:hover {
+  border-color: var(--ot-accent);
+  background: var(--ot-panel);
+}
+
+.outdoor-averages,
+.outdoor-panel,
+.outdoor-review-summary {
+  border: 1px solid var(--ot-line);
+  border-radius: 6px;
+  background: var(--ot-panel);
+  box-shadow: var(--shadow);
+}
+
+.outdoor-averages {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.85rem 1rem;
+}
+
+.outdoor-averages p {
+  margin: 0;
+}
+
+.outdoor-averages span {
+  color: var(--ot-muted);
+}
+
+.outdoor-panel {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 1rem;
+}
+
+.outdoor-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.outdoor-section-heading h3,
+.outdoor-subview h3,
+.outdoor-activity h4,
+.outdoor-review-summary h4 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+.outdoor-section-heading h3,
+.outdoor-subview > h3 {
+  font-size: 1.1rem;
+}
+
+.outdoor-small-button {
+  flex: 0 0 auto;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.7rem;
+}
+
+.outdoor-chart-frame {
+  position: relative;
+  min-width: 0;
+  padding: 0.2rem 0 1.5rem;
+  touch-action: none;
+}
+
+.outdoor-chart-frame canvas {
+  display: block;
+  width: 100% !important;
+  max-height: 22rem;
+}
+
+.outdoor-hold-hint {
+  position: absolute;
+  right: 0.35rem;
+  bottom: 0;
+  margin: 0;
+  color: var(--ot-muted);
+  font-size: 0.68rem;
+  opacity: 0.8;
+}
+
+.outdoor-subview {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.outdoor-subview-title {
+  font-size: 1.3rem !important;
+}
+
+.outdoor-year-chart {
+  height: min(55vh, 27rem);
+  min-height: 15rem;
+  margin: 0;
+}
+
+.outdoor-year-chart canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.outdoor-stat-grid,
+.outdoor-review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.outdoor-stat-card,
+.outdoor-review-card {
+  min-width: 0;
+  padding: 0.9rem;
+  border: 1px solid var(--ot-line);
+  border-radius: 6px;
+  background: var(--ot-panel);
+  box-shadow: var(--shadow);
+}
+
+.outdoor-stat-card h4,
+.outdoor-review-card h4 {
+  margin: 0 0 0.45rem;
+  color: var(--ot-accent-text);
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+
+.outdoor-stat-value {
+  margin: 0;
+  font-size: 1.04rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.outdoor-stat-detail {
+  margin: 0.2rem 0 0;
+  color: var(--ot-muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.outdoor-review-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 2.75rem;
+}
+
+.outdoor-review-navigation > span {
+  min-width: 9rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.outdoor-round-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--ot-line-strong);
+  border-radius: 50%;
+  background: var(--ot-panel-soft);
+  color: var(--ot-accent-text);
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.outdoor-round-button:hover {
+  border-color: var(--ot-accent);
+  background: var(--ot-panel);
+}
+
+.outdoor-review-hero {
+  padding: 1.25rem 1rem;
+  border: 1px solid var(--ot-line-strong);
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--ot-panel-soft), var(--ot-panel));
+  text-align: center;
+}
+
+.outdoor-review-month {
+  margin: 0 0 0.65rem;
+  color: var(--ot-accent-text);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.outdoor-review-total {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.outdoor-review-total-label {
+  margin: 0.35rem 0 0;
+  color: var(--ot-muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.outdoor-comparison {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0.8rem 0 0;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--ot-line);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.outdoor-comparison.is-positive { color: #21733a; background: rgba(76, 175, 98, 0.15); }
+.outdoor-comparison.is-negative { color: #a32626; background: rgba(220, 60, 60, 0.12); }
+.outdoor-comparison.is-neutral { color: var(--ot-muted); background: var(--ot-panel-soft); }
+.outdoor-tracker[data-theme='dark'] .outdoor-comparison.is-positive { color: #83e2a0; }
+.outdoor-tracker[data-theme='dark'] .outdoor-comparison.is-negative { color: #ff9b9b; }
+.outdoor-tracker[data-neon='true'] .outdoor-comparison.is-positive { color: #00ffaa; }
+.outdoor-tracker[data-neon='true'] .outdoor-comparison.is-negative { color: #ff88aa; }
+
+.outdoor-review-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.outdoor-review-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ot-accent), transparent);
+  content: '';
+  opacity: 0.6;
+}
+
+.outdoor-review-card-icon {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+
+.outdoor-activity {
+  gap: 0.65rem;
+}
+
+.outdoor-activity h4 {
+  font-size: 0.92rem;
+}
+
+.outdoor-activity-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.outdoor-activity-dot,
+.outdoor-legend-swatch {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.outdoor-dot--empty { background: var(--ot-panel-soft); border-color: var(--ot-line); }
+.outdoor-dot--red { background: var(--ot-red); }
+.outdoor-dot--yellow { background: var(--ot-yellow); }
+.outdoor-dot--lightgreen { background: var(--ot-lightgreen); }
+.outdoor-dot--darkgreen { background: var(--ot-darkgreen); }
+
+.outdoor-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  margin: 0;
+  padding: 0;
+  color: var(--ot-muted);
+  font-size: 0.73rem;
+  list-style: none;
+}
+
+.outdoor-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.outdoor-review-summary {
+  padding: 1rem;
+  line-height: 1.55;
+}
+
+.outdoor-review-summary h4 {
+  font-size: 0.84rem;
+  margin-bottom: 0.45rem;
+}
+
+.outdoor-review-summary p {
+  margin: 0;
+}
+
+.outdoor-status {
+  min-height: 1.3rem;
+  margin: 0;
+  color: var(--ot-accent-text);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.outdoor-sidebar-dismiss {
+  position: fixed;
+  z-index: 40;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.42);
+  cursor: default;
+}
+
+.outdoor-sidebar {
+  position: fixed;
+  z-index: 41;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(19rem, 88vw);
+  height: 100dvh;
+  padding-bottom: env(safe-area-inset-bottom);
+  border-left: 1px solid rgba(100, 160, 80, 0.2);
+  background: #1c2b1a;
+  box-shadow: -0.5rem 0 2rem rgba(0, 0, 0, 0.34);
+  color: #e7f0df;
+  transform: translateX(105%);
+  transition: transform 0.25s ease, visibility 0.25s ease;
+  visibility: hidden;
+}
+
+.outdoor-sidebar.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.outdoor-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: max(1rem, env(safe-area-inset-top)) 1rem 0.8rem;
+  border-bottom: 1px solid rgba(160, 210, 110, 0.22);
+}
+
+.outdoor-sidebar-header > span {
+  font-size: 1.35rem;
+}
+
+.outdoor-sidebar-header h3 {
+  flex: 1;
+  margin: 0;
+  color: #b7df8c;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.outdoor-menu-close {
+  width: 2.75rem;
+  min-width: 2.75rem;
+  height: 2.75rem;
+  border-color: rgba(190, 230, 160, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  color: #e7f0df;
+}
+
+.outdoor-sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.35rem 1rem 1rem;
+  overscroll-behavior: contain;
+}
+
+.outdoor-sidebar-section-label {
+  margin: 0.95rem 0 0.4rem;
+  color: rgba(205, 230, 170, 0.68);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.outdoor-sidebar-button {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 2.8rem;
+  margin-bottom: 0.35rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(170, 210, 140, 0.2);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #e7f0df;
+  font-size: 0.87rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.outdoor-sidebar-button:hover {
+  border-color: rgba(180, 230, 140, 0.55);
+  background: rgba(100, 180, 60, 0.17);
+  color: #ffffff;
+}
+
+.outdoor-sidebar-button.is-danger {
+  border-color: rgba(240, 125, 125, 0.3);
+  color: #ffd0d0;
+}
+
+.outdoor-sidebar-button.is-danger:hover {
+  background: rgba(180, 40, 40, 0.25);
+  border-color: rgba(240, 125, 125, 0.55);
+}
+
+.outdoor-start-date-badge {
+  margin-left: auto;
+  color: #c7d8bb;
+  font-size: 0.68rem;
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-sidebar {
+  border-color: rgba(255, 0, 255, 0.6);
+  background: rgba(5, 0, 20, 0.98);
+  box-shadow: -0.4rem 0 2rem rgba(255, 0, 255, 0.22);
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-sidebar-header h3 { color: #00ffff; }
+.outdoor-tracker[data-neon='true'] .outdoor-sidebar-section-label { color: rgba(0, 255, 255, 0.65); }
+.outdoor-tracker[data-neon='true'] .outdoor-sidebar-button { border-color: rgba(0, 255, 255, 0.25); color: #d8ffff; }
+.outdoor-tracker[data-neon='true'] .outdoor-sidebar-button:hover { border-color: #00ffff; background: rgba(0, 255, 255, 0.1); }
+.outdoor-tracker[data-neon='true'] .outdoor-sidebar-button.is-danger { border-color: rgba(255, 0, 100, 0.4); color: #ffadcb; }
+
+.outdoor-modal-backdrop {
+  position: fixed;
+  z-index: 60;
+  inset: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  overflow-y: auto;
+  padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  background: rgba(0, 0, 0, 0.48);
+  overscroll-behavior: contain;
+}
+
+.outdoor-dialog {
+  width: min(27rem, 100%);
+  max-height: min(90dvh, 48rem);
+  overflow-y: auto;
+  padding: 1.15rem;
+  border: 1px solid var(--ot-line-strong);
+  border-radius: 8px;
+  background: var(--ot-panel);
+  color: var(--ot-ink);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
+}
+
+.outdoor-dialog h3 {
+  margin: 0 0 0.8rem;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.outdoor-dialog form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.outdoor-dialog label {
+  margin-top: 0.25rem;
+  font-weight: 700;
+}
+
+.outdoor-dialog input,
+.outdoor-dialog textarea {
+  width: 100%;
+  min-height: 2.8rem;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--ot-line-strong);
+  border-radius: 5px;
+  background: var(--ot-panel-soft);
+  color: var(--ot-ink);
+  font: inherit;
+}
+
+.outdoor-dialog textarea {
+  min-height: 5rem;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.outdoor-dialog input::placeholder,
+.outdoor-dialog textarea::placeholder {
+  color: var(--ot-muted);
+  opacity: 0.8;
+}
+
+.outdoor-dialog-description,
+.outdoor-current-start-date {
+  margin: 0 0 0.8rem;
+  color: var(--ot-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.outdoor-current-start-date {
+  margin: 0.3rem 0;
+  text-align: center;
+}
+
+.outdoor-dialog-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.outdoor-dialog-actions .button {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.65rem;
+  border-color: var(--ot-line-strong);
+  color: var(--ot-ink);
+  overflow-wrap: anywhere;
+}
+
+.outdoor-dialog-actions .button-primary {
+  border-color: var(--ot-accent);
+  background: var(--ot-accent);
+  color: var(--accent-ink);
+}
+
+.outdoor-dialog-actions .button-primary:hover {
+  background: var(--accent-hover);
+}
+
+.outdoor-dialog-actions .button-danger {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.outdoor-dialog-actions .button-danger:hover {
+  border-color: var(--danger);
+  filter: brightness(0.96);
+}
+
+.outdoor-dialog--month-picker {
+  width: min(20rem, 100%);
+}
+
+.outdoor-month-picker-year {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 0.8rem;
+}
+
+.outdoor-month-picker-year > span {
+  color: var(--ot-accent-text);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.outdoor-month-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.outdoor-month-option {
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.2rem;
+  border: 1px solid var(--ot-line);
+  border-radius: 5px;
+  background: var(--ot-panel-soft);
+  color: var(--ot-ink);
+  cursor: pointer;
+}
+
+.outdoor-month-option[aria-pressed='true'] {
+  border-color: var(--ot-accent);
+  background: var(--ot-accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.outdoor-month-option:hover {
+  border-color: var(--ot-accent);
+}
+
+.outdoor-dialog-icon {
+  margin: 0 0 0.3rem;
+  font-size: 1.8rem;
+}
+
+.outdoor-toast {
+  position: fixed;
+  z-index: 70;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  left: max(1rem, env(safe-area-inset-left));
+  width: fit-content;
+  max-width: calc(100vw - 2rem);
+  margin-inline: auto;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--ot-line-strong);
+  border-radius: 6px;
+  background: var(--ot-panel);
+  color: var(--ot-accent-text);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.24);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+@keyframes outdoorSlideNext {
+  from { opacity: 0.45; transform: translateX(18%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes outdoorSlidePrevious {
+  from { opacity: 0.45; transform: translateX(-18%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.outdoor-calendar--next { animation: outdoorSlideNext 0.32s cubic-bezier(0.4, 0, 0.2, 1); }
+.outdoor-calendar--previous { animation: outdoorSlidePrevious 0.32s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.outdoor-tracker[data-neon='true'] .outdoor-panel,
+.outdoor-tracker[data-neon='true'] .outdoor-averages,
+.outdoor-tracker[data-neon='true'] .outdoor-review-summary,
+.outdoor-tracker[data-neon='true'] .outdoor-stat-card,
+.outdoor-tracker[data-neon='true'] .outdoor-review-card,
+.outdoor-tracker[data-neon='true'] .outdoor-review-hero {
+  border-color: var(--ot-line);
+  background-color: var(--ot-panel);
+  box-shadow: 0 0 1rem rgba(0, 255, 255, 0.08);
+}
+
+@keyframes outdoorNeonTitle {
+  from { background-position: 0%; }
+  to { background-position: 200%; }
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-topbar h2 {
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: outdoorNeonTitle 3s linear infinite;
+  text-shadow: none;
+}
+
+.outdoor-tracker[data-neon='true'] .button-primary {
+  border-color: #ff00ff;
+  background: linear-gradient(135deg, #ff00ff, #00ffff);
+  color: #000000;
+  box-shadow: 0 0 0.65rem rgba(255, 0, 255, 0.3);
+}
+
+.outdoor-tracker[data-neon='true'] .button-primary:hover {
+  box-shadow: 0 0 1rem rgba(0, 255, 255, 0.5);
+}
+
+.outdoor-tracker[data-neon='true'] .button-secondary {
+  border-color: rgba(0, 255, 255, 0.35);
+  background: rgba(0, 255, 255, 0.06);
+  color: #d8ffff;
+}
+
+.outdoor-tracker[data-neon='true'] .button-danger {
+  border-color: rgba(255, 0, 100, 0.55);
+  background: linear-gradient(135deg, #ff0055, #ff6600);
+  color: #ffffff;
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-round-button,
+.outdoor-tracker[data-neon='true'] .outdoor-menu-trigger,
+.outdoor-tracker[data-neon='true'] .outdoor-menu-close {
+  border-color: rgba(0, 255, 255, 0.42);
+  background: rgba(0, 255, 255, 0.08);
+  color: #00ffff;
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-month-picker-trigger {
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.65);
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-comparison,
+.outdoor-tracker[data-neon='true'] .outdoor-month-navigation .button,
+.outdoor-tracker[data-neon='true'] .outdoor-action-row .button {
+  border-color: var(--ot-line);
+  background: rgba(0, 255, 255, 0.06);
+  color: #cfffff;
+}
+
+.outdoor-tracker[data-neon='true'] .outdoor-dialog-actions .button-primary {
+  border-color: #00ffff;
+  background: linear-gradient(135deg, #ff00ff, #00ffff);
+  color: #000000;
+}
+
+@media (max-width: 23rem) {
+  .outdoor-tracker[data-neon='true'] { padding: 0.55rem; }
+  .outdoor-calendar { border-spacing: 0.16rem; }
+  .outdoor-calendar th { font-size: 0.68rem; }
+  .outdoor-calendar td { height: 2.9rem; }
+  .outdoor-day { min-width: 0; min-height: 2.75rem; font-size: 0.82rem; }
+  .outdoor-section-heading { align-items: flex-start; flex-direction: column; }
+  .outdoor-small-button { width: 100%; }
+}
+
+@media (max-width: 26rem) {
+  .outdoor-stat-grid,
+  .outdoor-review-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 34rem) {
+  .outdoor-dialog-actions {
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .outdoor-tracker *,
+  .outdoor-tracker *::before,
+  .outdoor-tracker *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
