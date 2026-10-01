@@ -1,5 +1,8 @@
 name: CI
 
+# Copy to .github/workflows/ci.yml to activate. checkout and setup-node are
+# pinned to Node 24 majors; Node 20 left GitHub-hosted runners on 2026-09-16.
+
 on:
   pull_request:
   push:
@@ -12,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm

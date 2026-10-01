@@ -109,13 +109,10 @@ export default function TimerTool() {
       {locked ? <p className="hint">{t('tools.timer.hintLocked')}</p> : null}
       {error ? <FieldError id={errorId}>{t(`tools.timer.errors.${error}`)}</FieldError> : null}
       <div className="result-block">
-        <p className="result-label" id={`${minutesId}-remaining`}>
-          {t('tools.timer.remaining')}
-        </p>
+        <p className="result-label">{t('tools.timer.remaining')}</p>
         <p
           className="result-value clock"
           role="timer"
-          aria-labelledby={`${minutesId}-remaining`}
           aria-label={t('tools.timer.remainingLabel', {
             minutes: t('tools.timer.minute', { count: clock.minutes }),
             seconds: t('tools.timer.second', { count: clock.seconds }),

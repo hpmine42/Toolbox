@@ -53,11 +53,20 @@ Components must not branch on language codes for copy.
 
 ## GitHub Pages
 
-Copy [`docs/ci/pages.yml`](docs/ci/pages.yml) to `.github/workflows/pages.yml` and [`docs/ci/ci.yml`](docs/ci/ci.yml) to `.github/workflows/ci.yml` when the repository can commit workflow files. The Pages workflow builds with `VITE_BASE_PATH=/<repository-name>/` and deploys the `dist` folder. In the repository settings, set Pages to **GitHub Actions**.
+Pages is not enabled yet, and the deploy workflow is not active. The repository token cannot create files under `.github/workflows/`, so these steps are still manual:
 
-GitHub Pages does not rewrite routes. The build writes `dist/404.html`, which redirects a direct visit such as `/Toolbox/tools/timer` back to the app and restores the path before React Router starts. Local development uses the base path `/` and does not need that redirect.
+1. Copy [`docs/ci/pages.yml`](docs/ci/pages.yml) to `.github/workflows/pages.yml`.
+2. Optionally copy [`docs/ci/ci.yml`](docs/ci/ci.yml) to `.github/workflows/ci.yml` so pull requests run tests.
+3. In the repository settings, open **Pages** and set the source to **GitHub Actions**.
+4. Merge to `main`. The deploy workflow runs on pushes to `main` and on manual dispatch. It does not deploy this pull request by itself.
 
-Expected project URL after the first deploy: `https://hpmine42.github.io/Toolbox/`.
+The workflow builds with `VITE_BASE_PATH=/<repository-name>/` and uploads `dist`. For this repository that prefix is `/Toolbox/`. A plain `npm run build` uses `/` and is not the Pages artifact. `npm run build:pages` reproduces the current project-site prefix.
+
+GitHub Pages does not rewrite routes. It serves `404.html` at the requested URL. The generated file redirects `/Toolbox/tools/timer` to `/Toolbox/?/tools/timer`, and `src/main.tsx` restores the real path before React Router starts. That keeps `/tools/<tool-name>` without a hash route and without server rewrites. The same fallback covers `/settings`. Local `vite` and `vite preview` already fall back to `index.html`, so they do not need the redirect.
+
+The visible line in `404.html` is bilingual on purpose. That file runs before the app and cannot use i18next.
+
+Expected project URL after the first successful deploy: `https://hpmine42.github.io/Toolbox/`.
 
 ## Architecture
 
